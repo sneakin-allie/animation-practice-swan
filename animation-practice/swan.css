@@ -1,0 +1,135 @@
+/* --- Base --- */
+
+body {
+    background: #1A6EB2;
+    display: flex;
+    height: 100vh;
+}
+
+.wrap {
+    margin: auto;
+    width: 75%;
+}
+
+svg {
+    display: block;
+    padding: 2em;
+    transform-box: fill-box; /* used to make the transform-origin the center of the bounding box of the entire svg */
+}
+
+rect, path, line, circle {
+    transform-origin: center; /* sets the origin for those elements' transformations */
+}
+
+/* --- Animations --- */
+
+/* Bubbles */
+
+.swan-bubble {
+    animation: bubble 1.5s linear alternate infinite;
+}
+
+.swan-bubble--2 {
+    animation-delay: 1.5s;
+}
+
+.swan-bubble--3 {
+    animation-delay: -0.5s;
+}
+
+.swan-bubble--4 {
+    animation-name: bubbleAlt;
+    animation-duration: 1.5s;
+}
+
+/* Swan */
+
+.swan {
+    animation: swan 1s linear alternate infinite;
+}
+
+.swan-head {
+    animation: bow 1s linear alternate infinite;
+    transform-origin: 80% 100%;
+}
+
+.swan-wing {
+    animation: wave 2s linear infinite;
+}
+
+/* Water */
+
+.swan-water {
+    animation: recede 4s linear alternate infinite;
+}
+
+/* --- Animation Keyframes --- */
+
+@keyframes bow {
+    from {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(2.5deg) translateY(1%);
+    }
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes bubble {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(10%);
+    }
+}
+
+@keyframes bubbleAlt {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes recede {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(0.95, 1);
+    }
+}
+
+@keyframes swan {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(1%);
+    }
+}
+
+@keyframes wave {
+    from {
+        transform: rotate(0);
+    }
+    10% {
+        transform: rotate(4deg);
+    }
+    20% {
+        transform: rotate(0);
+    }
+    30% {
+        transform: rotate(2deg);
+    }
+    40% {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
